@@ -1,0 +1,52 @@
+Soal no1:
+CREATE DATABASE myshop;
+
+Soal no2:
+
+create TABLE users (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255) not null ,
+    email varchar(255) not null ,
+    password varchar(255) not null
+)
+
+create TABLE categories (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255)
+)
+
+create TABLE items(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255),
+    description varchar(255),
+    price int,
+    stock int,
+    category_id int,
+    FOREIGN KEY (category_id) REFERENCES categories(id)
+)
+
+Soal no3:
+
+INSERT INTO users(name,email,password)
+VALUES("John Doe","john@doe.com","john123"),("Jane Doe","jane@doe.com","jenita123")
+
+INSERT INTO categories(name) 
+VALUES ("gadget"),("cloth"),("men"),("women"),("branded")
+
+INSERT INTO items (name,description,price,stock,category_id)
+VALUES ("Sumsang b50","hape keren dari merek sumsang","4000000","100","1"),("Uniklooh","baju keren dari brand ternama","500000","50","2"),("IMHO Watch","jam tangan anak yang jujur banget","2000000","10","1")
+
+Soal no4:
+
+A)SELECT name, email FROM users;
+B)SELECT *FROM items
+WHERE price > 1000000
+
+SELECT * FROM items
+WHERE name like 'uniklo%'
+C)SELECT items.name, items.description, items.price, items.stock, items.category_id, categories.name
+FROM items
+INNER JOIN categories ON items.category_id=categories.id
+
+Soal no5:
+UPDATE items set price = 2500000 where name = "Sumsang b50"
